@@ -35,49 +35,6 @@ Current development is focused on Llama 3.1 support, GGUF models, local inferenc
 - Runtime status
 - Open-source development
 
-## Architecture
-
-Lulu is composed of several layers.
-
-+--------------------------------+
-|       React + TypeScript       |
-|         Desktop UI             |
-+----------------+---------------+
-                 |
-                 v
-+--------------------------------+
-|             Vite               |
-|       Frontend Tooling         |
-+----------------+---------------+
-                 |
-                 v
-+--------------------------------+
-|        Python Runtime          |
-|    CLI / Registry / Server     |
-+----------------+---------------+
-                 |
-                 v
-+--------------------------------+
-|          C++ Bindings          |
-|      Native Integration        |
-+----------------+---------------+
-                 |
-                 v
-+--------------------------------+
-|           llama.cpp            |
-|       Inference Backend        |
-+----------------+---------------+
-                 |
-                 v
-+--------------------------------+
-|         GGUF Model             |
-|          Llama 3.1             |
-+--------------------------------+
-
-The architecture is intentionally split between the user-facing application layer and the native inference layer.
-
-The frontend is responsible for the user interface and application experience, while the runtime and native layers handle model management and inference.
-
 ## Current Backend
 
 Lulu currently uses `llama.cpp` as its inference backend.
