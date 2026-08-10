@@ -179,7 +179,7 @@ Installation instructions will be provided as the project moves toward its first
 For development builds, clone the repository and install the Python package:
 
 ```bash
-git clone https://github.com/USERNAME/lulu.git
+git clone https://github.com/neofetch-tech/lulu.git
 cd lulu
 
 pip install -e .
