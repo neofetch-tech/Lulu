@@ -1,0 +1,42 @@
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-darker);
+  color: var(--text);
+  overflow: hidden;
+}
+
+.loading-screen, .connect-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-darker);
+  color: var(--text);
+  font-family: var(--font-display);
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(6, 182, 212, 0.15);
+  border-top-color: var(--accent-to);
+  border-right-color: var(--accent-bright);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.connect-error {
+  color: var(--danger);
+  padding: 32px;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(239, 68, 68, 0.08) 0%, transparent 70%);
+}

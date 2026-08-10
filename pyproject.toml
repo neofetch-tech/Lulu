@@ -1,0 +1,35 @@
+[build-system]
+requires = ["scikit-build-core>=0.9", "pybind11>=2.13"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "lulu"
+version = "0.1.0"
+description = "Run large language models locally. (Name unofficial, subject to appeal.)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.0",
+    "huggingface_hub>=0.24",
+]
+
+[project.optional-dependencies]
+gui = ["PySide6>=6.6"]
+desktop = ["pywebview>=5.0"]
+
+[project.scripts]
+lulu = "lulu.cli:main"
+lulu-gui = "lulu.gui.app:main"
+lulu-desktop = "lulu.desktop.app:main"
+
+[tool.scikit-build]
+# Root of the CMake project (builds llama.cpp + the lulu_core extension).
+cmake.source-dir = "."
+cmake.build-type = "Release"
+# Pure-Python package lives under python/lulu; the compiled lulu_core.so
+# produced by CMake gets installed alongside it (see engine/CMakeLists.txt).
+wheel.packages = ["python/lulu"]
+
+[tool.scikit-build.cmake.define]
+CMAKE_POSITION_INDEPENDENT_CODE = "ON"
